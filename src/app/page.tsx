@@ -55,7 +55,7 @@ export default async function Home({
           <div>
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-[#f7931a]/30 bg-[#f7931a]/10 px-4 py-2 text-sm text-[#f7b15a]">
               <Sparkles size={16} />
-              OP_NET Week 3 - The Breakthrough · {source}
+              Bitcoin-native AI commerce
             </div>
             <h1 className="max-w-3xl text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-7xl">
               Mint, trade and monetize AI agents on Bitcoin.
