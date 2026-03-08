@@ -1,0 +1,116 @@
+{
+    "functions": [
+        {
+            "name": "register",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "deregister",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "incrementUsage",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "amount",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "isRegistered",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "usageOf",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "registeredCount",
+            "type": "Function",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "agentIdAt",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "index",
+                    "type": "UINT32"
+                }
+            ],
+            "outputs": []
+        }
+    ],
+    "events": [
+        {
+            "name": "AgentRegistered",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        },
+        {
+            "name": "AgentDeregistered",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        },
+        {
+            "name": "AgentUsageIncremented",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "amount",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        }
+    ]
+}

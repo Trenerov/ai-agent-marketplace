@@ -1,0 +1,130 @@
+{
+    "functions": [
+        {
+            "name": "configureAgentContract",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentContract",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "list",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "price",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "buy",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "listingId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "amount",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "cancelListing",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "listingId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "totalListings",
+            "type": "Function",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "totalActiveListings",
+            "type": "Function",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "listingForAgent",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getListing",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "listingId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        }
+    ],
+    "events": [
+        {
+            "name": "ListingCreated",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "price",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        },
+        {
+            "name": "ListingPurchased",
+            "values": [
+                {
+                    "name": "listingId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "amount",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        },
+        {
+            "name": "ListingCancelled",
+            "values": [
+                {
+                    "name": "listingId",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        }
+    ]
+}

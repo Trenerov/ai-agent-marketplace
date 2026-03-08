@@ -1,0 +1,38 @@
+{
+  "contracts": {
+    "agentNft": {
+      "artifact": "build/AgentNFT.wasm",
+      "abi": "abis/AgentNFT.abi.json",
+      "configure": []
+    },
+    "agentRegistry": {
+      "artifact": "build/AgentRegistry.wasm",
+      "abi": "abis/AgentRegistry.abi.json",
+      "configure": []
+    },
+    "usagePayment": {
+      "artifact": "build/UsagePayment.wasm",
+      "abi": "abis/UsagePayment.abi.json",
+      "configure": [
+        {
+          "method": "configureAgentContract",
+          "dependsOn": "agentNft"
+        },
+        {
+          "method": "configureRegistryContract",
+          "dependsOn": "agentRegistry"
+        }
+      ]
+    },
+    "marketplace": {
+      "artifact": "build/Marketplace.wasm",
+      "abi": "abis/Marketplace.abi.json",
+      "configure": [
+        {
+          "method": "configureAgentContract",
+          "dependsOn": "agentNft"
+        }
+      ]
+    }
+  }
+}

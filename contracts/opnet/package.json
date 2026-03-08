@@ -1,0 +1,33 @@
+{
+  "name": "ai-agent-marketplace-opnet-contracts",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:agent-nft": "asc assembly/agent-nft/index.ts --target agent-nft --measure --uncheckedBehavior never",
+    "build:registry": "asc assembly/registry/index.ts --target registry --measure --uncheckedBehavior never",
+    "build:payment": "asc assembly/payment/index.ts --target payment --measure --uncheckedBehavior never",
+    "build:marketplace": "asc assembly/marketplace/index.ts --target marketplace --measure --uncheckedBehavior never",
+    "build": "npm run build:agent-nft && npm run build:registry && npm run build:payment && npm run build:marketplace",
+    "test": "node tests/contracts.test.mjs",
+    "deploy:plan": "node scripts/deployment-plan.mjs",
+    "deploy:dry-run": "node scripts/deploy.mjs --dry-run",
+    "deploy": "node scripts/deploy.mjs",
+    "deploy:sync-env": "node scripts/sync-addresses.mjs",
+    "broadcast:intent": "node scripts/broadcast-intent.mjs",
+    "broadcast:signed": "node scripts/broadcast-signed.mjs",
+    "read:live": "node scripts/read-live-state.mjs",
+    "sync:events": "node scripts/fetch-transaction-events.mjs",
+    "prepare:intent": "node scripts/prepare-intent.mjs",
+    "verify:payment": "node scripts/verify-payment.mjs",
+    "verify:intent": "node scripts/verify-intent-signature.mjs"
+  },
+  "dependencies": {
+    "@btc-vision/as-bignum": "^0.0.7",
+    "@btc-vision/btc-runtime": "^1.10.12",
+    "@btc-vision/opnet-transform": "^0.2.1"
+  },
+  "devDependencies": {
+    "assemblyscript": "^0.28.9",
+    "typescript": "^5.9.3"
+  }
+}

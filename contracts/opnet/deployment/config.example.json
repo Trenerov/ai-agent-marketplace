@@ -1,0 +1,14 @@
+{
+  "network": "opnetTestnet",
+  "rpcUrl": "https://testnet.opnet.org",
+  "feeRate": 10,
+  "priorityFee": "0",
+  "gasSatFee": "10000",
+  "maximumAllowedSatToSpend": "50000",
+  "wallet": {
+    "derivation": "deriveUnisat",
+    "addressType": "P2TR",
+    "accountIndex": 0,
+    "mldsaSecurityLevel": "LEVEL2"
+  }
+}

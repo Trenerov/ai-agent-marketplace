@@ -1,0 +1,116 @@
+{
+    "functions": [
+        {
+            "name": "configureAgentContract",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentContract",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "configureRegistryContract",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "registryContract",
+                    "type": "ADDRESS"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "pay",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "inputHash",
+                    "type": "STRING"
+                },
+                {
+                    "name": "amount",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "claimEarnings",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "earningsOf",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "totalPaidForAgent",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "totalProtocolRevenue",
+            "type": "Function",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "totalReferralRevenue",
+            "type": "Function",
+            "inputs": [],
+            "outputs": []
+        }
+    ],
+    "events": [
+        {
+            "name": "PaymentReceived",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "amount",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        },
+        {
+            "name": "EarningsClaimed",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        }
+    ]
+}

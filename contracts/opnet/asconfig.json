@@ -1,0 +1,32 @@
+{
+  "targets": {
+    "agent-nft": {
+      "outFile": "build/AgentNFT.wasm",
+      "use": ["abort=assembly/agent-nft/index/abort"]
+    },
+    "registry": {
+      "outFile": "build/AgentRegistry.wasm",
+      "use": ["abort=assembly/registry/index/abort"]
+    },
+    "payment": {
+      "outFile": "build/UsagePayment.wasm",
+      "use": ["abort=assembly/payment/index/abort"]
+    },
+    "marketplace": {
+      "outFile": "build/Marketplace.wasm",
+      "use": ["abort=assembly/marketplace/index/abort"]
+    }
+  },
+  "options": {
+    "sourceMap": false,
+    "optimizeLevel": 3,
+    "shrinkLevel": 1,
+    "converge": true,
+    "noAssert": false,
+    "runtime": "stub",
+    "memoryBase": 0,
+    "initialMemory": 1,
+    "exportStart": "start",
+    "transform": "@btc-vision/opnet-transform"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "network": "opnetTestnet",
+  "rpcUrl": "https://testnet.opnet.org",
+  "updatedAt": "2026-03-08T10:03:56.502Z",
+  "contracts": {
+    "agentNft": {
+      "address": "opt1sqp5x28kphmsuh04yyh3k944sttmhwk55my4uy04h",
+      "publicKey": "",
+      "fundingTxId": "5e522497644d7abe71649667c79bee754c1b41c89f7315524cf4844ecd6e7cc7",
+      "revealTxId": "53baec7358b026a12dc5581170bfee9b40bca27ee99e4f3c6e98101ca7c6a4af",
+      "configured": []
+    },
+    "agentRegistry": {
+      "address": "opt1sqrxchsrk49ny6fmax3e588537u6k0eqmku5jalcw",
+      "publicKey": "",
+      "fundingTxId": "2ed4185cdd3a168df4fcaa46b22de7d9872bb9a3a7246d5f7df2c62579ac05ca",
+      "revealTxId": "974a96e25d91438c43bfefacdcea6a17444c748e7c5760dedd6d76ff96f4afcb",
+      "configured": []
+    },
+    "usagePayment": {
+      "address": "opt1sqpw9lwkvuhe2zwj6qepfuc7jdtnjqu2nx5j6axut",
+      "publicKey": "0xe2511de5f5b90b8c79312b2cfdd1104c3929657374cbe8c6948050a7f2ce940f",
+      "fundingTxId": "0b0eae31663b0cf79fc609ddb76252f43c673698d5701a555b8419e1f9cc0699",
+      "revealTxId": "78302ca6de35c9885bd74073d6055ae5a1aa73b88c3c33bae76e0f3af555e956",
+      "configured": []
+    },
+    "marketplace": {
+      "address": "opt1sqzkwuvu6l59pgmywy7svk73qy9zn4ttsase9shkx",
+      "publicKey": "0xb1d5d85a71355c099a5d8b365a27fb1df32189a1e4d1b98559d074a2d4bd3a82",
+      "fundingTxId": "2adf19d6e202114b1b252a32322e31b6873196b66e7b5b2f3d00ef82839e0e55",
+      "revealTxId": "3e7fbcf04cdeae41826571d182b6dc5f8799f56ca292a27f6549c8607548c0c8",
+      "configured": []
+    }
+  }
+}

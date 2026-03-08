@@ -1,0 +1,197 @@
+{
+    "functions": [
+        {
+            "name": "mint",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "promptHash",
+                    "type": "STRING"
+                },
+                {
+                    "name": "metadataURI",
+                    "type": "STRING"
+                },
+                {
+                    "name": "pricePerUse",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "category",
+                    "type": "UINT8"
+                },
+                {
+                    "name": "royaltyBps",
+                    "type": "UINT16"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "updatePrice",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "newPrice",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "toggleActive",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "updateMetadata",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "metadataURI",
+                    "type": "STRING"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getAgent",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "priceOf",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "promptHashOf",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "isActiveAgent",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "recordUsage",
+            "type": "Function",
+            "inputs": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "usageDelta",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "revenueDelta",
+                    "type": "UINT256"
+                }
+            ],
+            "outputs": []
+        }
+    ],
+    "events": [
+        {
+            "name": "AgentMinted",
+            "values": [
+                {
+                    "name": "tokenId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "pricePerUse",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "category",
+                    "type": "UINT8"
+                },
+                {
+                    "name": "royaltyBps",
+                    "type": "UINT16"
+                }
+            ],
+            "type": "Event"
+        },
+        {
+            "name": "AgentPriceUpdated",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "newPrice",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        },
+        {
+            "name": "AgentToggled",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                }
+            ],
+            "type": "Event"
+        },
+        {
+            "name": "AgentMetadataUpdated",
+            "values": [
+                {
+                    "name": "agentId",
+                    "type": "UINT256"
+                },
+                {
+                    "name": "metadataURI",
+                    "type": "STRING"
+                }
+            ],
+            "type": "Event"
+        }
+    ]
+}

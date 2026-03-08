@@ -1,0 +1,539 @@
+{
+  "agents": [
+    {
+      "id": 1,
+      "name": "BTC Oracle",
+      "category": 0,
+      "description": "Analyzes BTC price action with technical indicators, market structure and liquidity context.",
+      "icon": "BO",
+      "owner": "bc1q8f...0net",
+      "creator": "bc1q8f...0net",
+      "promptHash": "0xbtc0racle001",
+      "metadataUri": "ipfs://btc-oracle",
+      "pricePerUse": 500,
+      "totalUses": 1248,
+      "totalRevenue": 624000,
+      "avgRating": 4.9,
+      "responseTime": "5.4s",
+      "isActive": true,
+      "royaltyBps": 500,
+      "createdAt": "2026-03-05",
+      "sampleOutputs": [
+        {
+          "input": "BTC at 92k with strong spot inflows.",
+          "output": "Bias remains bullish while 90.8k holds. Primary resistance is 94.2k, invalidation below 89.6k."
+        },
+        {
+          "input": "What does a sweep of Asia lows imply?",
+          "output": "It usually signals liquidity collection. Wait for reclaim and displacement before chasing direction."
+        }
+      ],
+      "reviews": [
+        {
+          "user": "0xAlex",
+          "rating": 5,
+          "comment": "Best agent for quick pre-market BTC framing."
+        },
+        {
+          "user": "0xMara",
+          "rating": 5,
+          "comment": "Signals are concise and explain risk, not just direction."
+        }
+      ],
+      "usageHistory": [
+        {
+          "payer": "bc1qa1...8x2",
+          "amount": 500,
+          "txHash": "0xpay001",
+          "createdAt": "2026-03-07 14:04"
+        },
+        {
+          "payer": "bc1qg9...3pa",
+          "amount": 500,
+          "txHash": "0xpay002",
+          "createdAt": "2026-03-07 13:31"
+        },
+        {
+          "payer": "bc1qz2...7lk",
+          "amount": 500,
+          "txHash": "0xpay003",
+          "createdAt": "2026-03-07 12:48"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Thread Machine",
+      "category": 1,
+      "description": "Generates sharp crypto Twitter threads with hooks, structure and CTA-ready endings.",
+      "icon": "TM",
+      "owner": "bc1qtw...88a",
+      "creator": "bc1qtw...88a",
+      "promptHash": "0xthread002",
+      "metadataUri": "ipfs://thread-machine",
+      "pricePerUse": 300,
+      "totalUses": 2107,
+      "totalRevenue": 632100,
+      "avgRating": 4.8,
+      "responseTime": "3.1s",
+      "isActive": true,
+      "royaltyBps": 500,
+      "createdAt": "2026-03-04",
+      "sampleOutputs": [
+        {
+          "input": "Why Bitcoin AI rails matter.",
+          "output": "1/ AI without payments is a demo. Bitcoin gives agents money rails. Here is why OP_NET changes the game..."
+        },
+        {
+          "input": "Turn product launch notes into a thread.",
+          "output": "Hook: Most launches fail because nobody understands the value in 10 seconds. This launch fixes that..."
+        }
+      ],
+      "reviews": [
+        {
+          "user": "0xSofi",
+          "rating": 5,
+          "comment": "Delivers posting-ready threads without cleanup."
+        },
+        {
+          "user": "0xRune",
+          "rating": 4,
+          "comment": "Could use more edgy hooks, but output is consistent."
+        }
+      ],
+      "usageHistory": [
+        {
+          "payer": "bc1qqx...1ma",
+          "amount": 300,
+          "txHash": "0xpay101",
+          "createdAt": "2026-03-07 13:52"
+        },
+        {
+          "payer": "bc1qpk...2dd",
+          "amount": 300,
+          "txHash": "0xpay102",
+          "createdAt": "2026-03-07 13:17"
+        },
+        {
+          "payer": "bc1qel...9co",
+          "amount": 300,
+          "txHash": "0xpay103",
+          "createdAt": "2026-03-07 11:06"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Solidity Guard",
+      "category": 2,
+      "description": "Audits smart contracts for critical flaws, edge cases and gas issues with clear severity labels.",
+      "icon": "SG",
+      "owner": "bc1qse...102",
+      "creator": "bc1qse...102",
+      "promptHash": "0xguard003",
+      "metadataUri": "ipfs://solidity-guard",
+      "pricePerUse": 1000,
+      "totalUses": 734,
+      "totalRevenue": 734000,
+      "avgRating": 4.95,
+      "responseTime": "6.2s",
+      "isActive": true,
+      "royaltyBps": 700,
+      "createdAt": "2026-03-05",
+      "sampleOutputs": [
+        {
+          "input": "Review this upgradeable treasury contract.",
+          "output": "Critical: initializer can be front-run if proxy deployment and setup are separated. Medium: unchecked low-level call result."
+        },
+        {
+          "input": "Any gas issues in the withdraw loop?",
+          "output": "Yes. Iterating over dynamic user arrays risks griefing. Replace full scans with pull-based accounting."
+        }
+      ],
+      "reviews": [
+        {
+          "user": "0xBuildr",
+          "rating": 5,
+          "comment": "Saved us from shipping an unsafe initializer."
+        },
+        {
+          "user": "0xKira",
+          "rating": 5,
+          "comment": "Best mix of severity and concrete fixes."
+        }
+      ],
+      "usageHistory": [
+        {
+          "payer": "bc1qum...3ef",
+          "amount": 1000,
+          "txHash": "0xpay201",
+          "createdAt": "2026-03-07 12:43"
+        },
+        {
+          "payer": "bc1qka...1uo",
+          "amount": 1000,
+          "txHash": "0xpay202",
+          "createdAt": "2026-03-07 10:11"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Whale Tracker",
+      "category": 3,
+      "description": "Identifies whale wallet movements, exchange flow and suspicious clusters in near real time.",
+      "icon": "WT",
+      "owner": "bc1qdt...209",
+      "creator": "bc1qdt...209",
+      "promptHash": "0xwhale004",
+      "metadataUri": "ipfs://whale-tracker",
+      "pricePerUse": 800,
+      "totalUses": 918,
+      "totalRevenue": 734400,
+      "avgRating": 4.7,
+      "responseTime": "4.4s",
+      "isActive": true,
+      "royaltyBps": 500,
+      "createdAt": "2026-03-03",
+      "sampleOutputs": [
+        {
+          "input": "Address bc1qxyz...",
+          "output": "Cluster suggests market-making activity. Last 24h shows 3 exchange interactions and one cold-storage refill."
+        },
+        {
+          "input": "What happened around the 1,500 BTC transfer?",
+          "output": "Funds moved from a long-dormant wallet into a fresh cluster, then split across two exchange deposit paths."
+        }
+      ],
+      "reviews": [
+        {
+          "user": "0xNori",
+          "rating": 4,
+          "comment": "Useful context before large moves hit the timeline."
+        },
+        {
+          "user": "0xDax",
+          "rating": 5,
+          "comment": "The cluster heuristics are strong for a cheap per-use tool."
+        }
+      ],
+      "usageHistory": [
+        {
+          "payer": "bc1qva...8ui",
+          "amount": 800,
+          "txHash": "0xpay301",
+          "createdAt": "2026-03-07 13:04"
+        },
+        {
+          "payer": "bc1qio...6no",
+          "amount": 800,
+          "txHash": "0xpay302",
+          "createdAt": "2026-03-07 09:37"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Rune Helper",
+      "category": 4,
+      "description": "Answers questions about Bitcoin Runes, onboarding flows and ecosystem terminology.",
+      "icon": "RH",
+      "owner": "bc1qhl...557",
+      "creator": "bc1qhl...557",
+      "promptHash": "0xrune005",
+      "metadataUri": "ipfs://rune-helper",
+      "pricePerUse": 200,
+      "totalUses": 2844,
+      "totalRevenue": 568800,
+      "avgRating": 4.6,
+      "responseTime": "2.8s",
+      "isActive": true,
+      "royaltyBps": 500,
+      "createdAt": "2026-03-02",
+      "sampleOutputs": [
+        {
+          "input": "How do I mint a Rune?",
+          "output": "You need a compatible wallet, enough BTC for fees and the etching parameters. The key distinction is etching versus minting supply."
+        },
+        {
+          "input": "Explain cap and premine simply.",
+          "output": "Cap is the total possible mintable supply. Premine is the portion assigned at creation before public minting."
+        }
+      ],
+      "reviews": [
+        {
+          "user": "0xMilo",
+          "rating": 4,
+          "comment": "Great first-stop explainer for newcomers."
+        },
+        {
+          "user": "0xPia",
+          "rating": 5,
+          "comment": "Cheap, fast and accurate enough for support flows."
+        }
+      ],
+      "usageHistory": [
+        {
+          "payer": "bc1qrs...4er",
+          "amount": 200,
+          "txHash": "0xpay401",
+          "createdAt": "2026-03-07 14:15"
+        },
+        {
+          "payer": "bc1qyu...7ii",
+          "amount": 200,
+          "txHash": "0xpay402",
+          "createdAt": "2026-03-07 14:01"
+        },
+        {
+          "payer": "bc1qke...9lp",
+          "amount": 200,
+          "txHash": "0xpay403",
+          "createdAt": "2026-03-07 13:44"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "PFP Writer",
+      "category": 5,
+      "description": "Creates lore, trait callouts and collection copy for NFT drops and profile-picture projects.",
+      "icon": "PW",
+      "owner": "bc1qfa...610",
+      "creator": "bc1qfa...610",
+      "promptHash": "0xpfp006",
+      "metadataUri": "ipfs://pfp-writer",
+      "pricePerUse": 400,
+      "totalUses": 1160,
+      "totalRevenue": 464000,
+      "avgRating": 4.85,
+      "responseTime": "3.7s",
+      "isActive": true,
+      "royaltyBps": 500,
+      "createdAt": "2026-03-01",
+      "sampleOutputs": [
+        {
+          "input": "Cyber samurai collection with 8,888 supply.",
+          "output": "Forged in signal storms, each samurai carries a shard of a failed future market and a vow to rewrite it."
+        },
+        {
+          "input": "Need trait copy for neon visor rarity.",
+          "output": "Neon Visor marks scouts who crossed the mempool dusk and returned with unfiltered alpha."
+        }
+      ],
+      "reviews": [
+        {
+          "user": "0xLena",
+          "rating": 5,
+          "comment": "Way more character than generic AI lore tools."
+        },
+        {
+          "user": "0xRex",
+          "rating": 5,
+          "comment": "Perfect for fast collection drafts."
+        }
+      ],
+      "usageHistory": [
+        {
+          "payer": "bc1quw...3tr",
+          "amount": 400,
+          "txHash": "0xpay501",
+          "createdAt": "2026-03-07 11:22"
+        },
+        {
+          "payer": "bc1qdi...8vb",
+          "amount": 400,
+          "txHash": "0xpay502",
+          "createdAt": "2026-03-07 10:03"
+        }
+      ]
+    }
+  ],
+  "listings": [
+    {
+      "id": 101,
+      "agentId": 1,
+      "seller": "bc1q8f...0net",
+      "price": 280000,
+      "isActive": true,
+      "createdAt": "2026-03-07"
+    },
+    {
+      "id": 102,
+      "agentId": 3,
+      "seller": "bc1qse...102",
+      "price": 490000,
+      "isActive": true,
+      "createdAt": "2026-03-06"
+    },
+    {
+      "id": 103,
+      "agentId": 4,
+      "seller": "bc1qdt...209",
+      "price": 360000,
+      "isActive": true,
+      "createdAt": "2026-03-06"
+    }
+  ],
+  "executions": [],
+  "payments": [
+    {
+      "id": "27486a0f-6cd3-4414-85fb-c88c0ef4453a",
+      "agentId": 1,
+      "payer": "bc1qa1...8x2",
+      "amount": 500,
+      "txHash": "0xpay001",
+      "executionId": null,
+      "createdAt": "2026-03-07 14:04"
+    },
+    {
+      "id": "41e50248-233f-402e-b8f6-93761f51d981",
+      "agentId": 1,
+      "payer": "bc1qg9...3pa",
+      "amount": 500,
+      "txHash": "0xpay002",
+      "executionId": null,
+      "createdAt": "2026-03-07 13:31"
+    },
+    {
+      "id": "8c979d8f-0dd7-4603-b914-4ab93976b706",
+      "agentId": 1,
+      "payer": "bc1qz2...7lk",
+      "amount": 500,
+      "txHash": "0xpay003",
+      "executionId": null,
+      "createdAt": "2026-03-07 12:48"
+    },
+    {
+      "id": "a2682237-b71b-4e51-8b28-53bd3dbac7f8",
+      "agentId": 2,
+      "payer": "bc1qqx...1ma",
+      "amount": 300,
+      "txHash": "0xpay101",
+      "executionId": null,
+      "createdAt": "2026-03-07 13:52"
+    },
+    {
+      "id": "30e0ad75-9324-4fce-b44d-e41fa1aefba6",
+      "agentId": 2,
+      "payer": "bc1qpk...2dd",
+      "amount": 300,
+      "txHash": "0xpay102",
+      "executionId": null,
+      "createdAt": "2026-03-07 13:17"
+    },
+    {
+      "id": "cb1b5501-be50-4489-a1f6-5ecd99e64385",
+      "agentId": 2,
+      "payer": "bc1qel...9co",
+      "amount": 300,
+      "txHash": "0xpay103",
+      "executionId": null,
+      "createdAt": "2026-03-07 11:06"
+    },
+    {
+      "id": "6c5a7afd-d491-41e7-bf8c-eca8b0d038dc",
+      "agentId": 3,
+      "payer": "bc1qum...3ef",
+      "amount": 1000,
+      "txHash": "0xpay201",
+      "executionId": null,
+      "createdAt": "2026-03-07 12:43"
+    },
+    {
+      "id": "c627f52f-0b5f-4258-bb08-9f7c3b78b1ee",
+      "agentId": 3,
+      "payer": "bc1qka...1uo",
+      "amount": 1000,
+      "txHash": "0xpay202",
+      "executionId": null,
+      "createdAt": "2026-03-07 10:11"
+    },
+    {
+      "id": "b3fc900f-b358-4f98-acb4-90dd18bae9af",
+      "agentId": 4,
+      "payer": "bc1qva...8ui",
+      "amount": 800,
+      "txHash": "0xpay301",
+      "executionId": null,
+      "createdAt": "2026-03-07 13:04"
+    },
+    {
+      "id": "10d7378d-1488-4357-98eb-735adbc9b6fb",
+      "agentId": 4,
+      "payer": "bc1qio...6no",
+      "amount": 800,
+      "txHash": "0xpay302",
+      "executionId": null,
+      "createdAt": "2026-03-07 09:37"
+    },
+    {
+      "id": "26a6d037-d0ef-48e7-80f6-9e53ea959928",
+      "agentId": 5,
+      "payer": "bc1qrs...4er",
+      "amount": 200,
+      "txHash": "0xpay401",
+      "executionId": null,
+      "createdAt": "2026-03-07 14:15"
+    },
+    {
+      "id": "acbfca7f-e387-451c-ab66-b931d40c75ef",
+      "agentId": 5,
+      "payer": "bc1qyu...7ii",
+      "amount": 200,
+      "txHash": "0xpay402",
+      "executionId": null,
+      "createdAt": "2026-03-07 14:01"
+    },
+    {
+      "id": "834d10e2-3886-4256-9298-55aa648fc7a9",
+      "agentId": 5,
+      "payer": "bc1qke...9lp",
+      "amount": 200,
+      "txHash": "0xpay403",
+      "executionId": null,
+      "createdAt": "2026-03-07 13:44"
+    },
+    {
+      "id": "b9c01b51-eac9-4f05-86b0-f59f7acdeb6b",
+      "agentId": 6,
+      "payer": "bc1quw...3tr",
+      "amount": 400,
+      "txHash": "0xpay501",
+      "executionId": null,
+      "createdAt": "2026-03-07 11:22"
+    },
+    {
+      "id": "b519ca0c-9621-46d0-99fb-6140e35c33e5",
+      "agentId": 6,
+      "payer": "bc1qdi...8vb",
+      "amount": 400,
+      "txHash": "0xpay502",
+      "executionId": null,
+      "createdAt": "2026-03-07 10:03"
+    }
+  ],
+  "activity": [
+    {
+      "id": "02c3c8b0-2b73-43da-a29e-cd07d166bfe9",
+      "title": "Secondary sale closed",
+      "detail": "BTC Oracle moved into active listing with creator royalty locked at 5%.",
+      "timestamp": "8m ago",
+      "type": "sale"
+    },
+    {
+      "id": "b47ccee2-e9ae-4f0d-8360-663c633d40ea",
+      "title": "Usage spike",
+      "detail": "Rune Helper crossed 2,800 paid executions on testnet.",
+      "timestamp": "26m ago",
+      "type": "payment"
+    },
+    {
+      "id": "53d38bee-b4e5-4de4-a897-f72198184478",
+      "title": "New mint queued",
+      "detail": "A new data-analysis agent completed prompt encryption and is ready to mint.",
+      "timestamp": "1h ago",
+      "type": "mint"
+    }
+  ]
+}

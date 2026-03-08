@@ -1,0 +1,48 @@
+{
+  "network": "opnetTestnet",
+  "rpcUrl": "https://testnet.opnet.org",
+  "updatedAt": "2026-03-07T00:00:00.000Z",
+  "contracts": {
+    "agentNft": {
+      "address": "",
+      "fundingTxId": "",
+      "revealTxId": "",
+      "configured": []
+    },
+    "agentRegistry": {
+      "address": "",
+      "fundingTxId": "",
+      "revealTxId": "",
+      "configured": []
+    },
+    "usagePayment": {
+      "address": "",
+      "fundingTxId": "",
+      "revealTxId": "",
+      "configured": [
+        {
+          "method": "configureAgentContract",
+          "txId": "",
+          "dependsOn": "agentNft"
+        },
+        {
+          "method": "configureRegistryContract",
+          "txId": "",
+          "dependsOn": "agentRegistry"
+        }
+      ]
+    },
+    "marketplace": {
+      "address": "",
+      "fundingTxId": "",
+      "revealTxId": "",
+      "configured": [
+        {
+          "method": "configureAgentContract",
+          "txId": "",
+          "dependsOn": "agentNft"
+        }
+      ]
+    }
+  }
+}
