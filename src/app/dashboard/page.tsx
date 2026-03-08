@@ -3,8 +3,6 @@
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
-import { ContractActivityCard } from "@/components/ContractActivityCard";
-import { ContractStatusCard } from "@/components/ContractStatusCard";
 import { useWallet } from "@/context/WalletContext";
 import { revenueSeries, walletSummary } from "@/lib/site-data";
 
@@ -41,7 +39,6 @@ type EarningsPayload = {
 function DashboardContent() {
   const searchParams = useSearchParams();
   const { address, balance, connected, connect, network, mode } = useWallet();
-  const [tab, setTab] = useState("agents");
   const [agents, setAgents] = useState<DashboardAgent[]>([]);
   const [history, setHistory] = useState<HistoryPayload | null>(null);
   const [earnings, setEarnings] = useState<EarningsPayload | null>(null);
@@ -69,7 +66,7 @@ function DashboardContent() {
         fetch(`/api/user/${encoded}/earnings?${query}`),
       ]);
 
-      const agentsData = (await agentsResponse.json()) as { source?: string; agents?: DashboardAgent[] };
+      const agentsData = (await agentsResponse.json()) as { agents?: DashboardAgent[] };
       const historyData = (await historyResponse.json()) as HistoryPayload;
       const earningsData = (await earningsResponse.json()) as EarningsPayload;
 
@@ -127,30 +124,9 @@ function DashboardContent() {
         </div>
       ) : (
         <div className="mb-8 rounded-[24px] border border-white/10 bg-white/[0.03] p-4 text-sm text-white/55">
-          Active wallet mode: {mode}. Dashboard data is resolved for {address} from {earnings?.source || history?.source || source}.
+          Wallet connected as {address}. Marketplace activity and earnings are loaded for this creator profile.
         </div>
       )}
-
-      <div className="mb-8 flex flex-wrap gap-2">
-        {[
-          ["agents", "My Agents"],
-          ["earnings", "Earnings"],
-          ["activity", "Activity"],
-          ["usage", "My Usage"],
-        ].map(([value, label]) => (
-          <button
-            key={value}
-            onClick={() => setTab(value)}
-            className={`rounded-full px-4 py-2 text-sm transition ${
-              tab === value
-                ? "bg-[#f7931a] text-black"
-                : "border border-white/10 bg-white/[0.03] text-white/60"
-            }`}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
 
       <section className="grid gap-8 xl:grid-cols-[1.2fr,0.8fr]">
         <div className="space-y-8">
@@ -170,8 +146,71 @@ function DashboardContent() {
         </div>
 
         <div className="space-y-8">
-          <ContractStatusCard />
-          <ContractActivityCard />
+          <div className="rounded-[34px] border border-white/10 bg-white/[0.03] p-6">
+            <div className="mb-5 flex items-start justify-between gap-4">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-white/35">Creator snapshot</div>
+                <h2 className="mt-3 text-2xl font-semibold text-white">How your agents are performing</h2>
+              </div>
+              <div className="rounded-full border border-[#f7931a]/20 bg-[#f7931a]/10 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[#f7b15a]">
+                {agents.length} agents
+              </div>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
+                <div className="text-xs uppercase tracking-[0.18em] text-white/35">Paid runs</div>
+                <div className="mt-2 text-2xl font-semibold text-white">{history?.usageCount?.toLocaleString() ?? "0"}</div>
+              </div>
+              <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
+                <div className="text-xs uppercase tracking-[0.18em] text-white/35">Recent payments</div>
+                <div className="mt-2 text-2xl font-semibold text-white">
+                  {(history?.payments?.length ?? 0).toLocaleString()}
+                </div>
+              </div>
+              <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
+                <div className="text-xs uppercase tracking-[0.18em] text-white/35">Wallet mode</div>
+                <div className="mt-2 text-2xl font-semibold capitalize text-white">{mode}</div>
+              </div>
+              <div className="rounded-[24px] border border-white/10 bg-black/20 p-4">
+                <div className="text-xs uppercase tracking-[0.18em] text-white/35">Marketplace view</div>
+                <div className="mt-2 text-2xl font-semibold capitalize text-white">
+                  {earnings?.source || history?.source || source}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-[34px] border border-white/10 bg-white/[0.03] p-6">
+            <div className="mb-5 flex items-start justify-between gap-4">
+              <div>
+                <div className="text-xs uppercase tracking-[0.3em] text-white/35">Market pulse</div>
+                <h2 className="mt-3 text-2xl font-semibold text-white">What buyers are doing lately</h2>
+              </div>
+              <div className="rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-2 text-xs uppercase tracking-[0.18em] text-sky-200">
+                {history?.activity?.length ?? 0} recent events
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              {(history?.payments ?? []).slice(0, 4).map((payment) => (
+                <div key={payment.id} className="rounded-[24px] border border-white/10 bg-black/20 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <div>
+                      <div className="font-medium text-white">{payment.amount.toLocaleString()} sats payment</div>
+                      <div className="mt-1 text-sm text-white/45">{payment.txHash}</div>
+                    </div>
+                    <div className="text-xs uppercase tracking-[0.18em] text-white/35">{payment.createdAt}</div>
+                  </div>
+                </div>
+              ))}
+              {(history?.payments?.length ?? 0) === 0 ? (
+                <div className="rounded-[24px] border border-white/10 bg-black/20 p-4 text-sm text-white/55">
+                  Payment activity will show up here after users start running your agents.
+                </div>
+              ) : null}
+            </div>
+          </div>
 
           <div className="rounded-[34px] border border-white/10 bg-white/[0.03] p-6">
             <div className="mb-5 text-xs uppercase tracking-[0.3em] text-white/35">My agents</div>

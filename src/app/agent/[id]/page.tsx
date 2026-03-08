@@ -23,7 +23,7 @@ export default async function AgentDetailPage({
   }
 
   const listing = await queryListingByAgentId(source, agent.id);
-  const protocolItems = [
+  const assetItems = [
     { label: "Prompt hash", value: agent.promptHash },
     { label: "Metadata URI", value: agent.metadataUri },
     { label: "Owner", value: agent.owner },
@@ -48,12 +48,10 @@ export default async function AgentDetailPage({
                 {getCategoryById(agent.category)?.name}
               </div>
               <h1 className="text-4xl font-semibold text-white">{agent.name}</h1>
-              <div className="mt-2 text-sm text-white/55">
-                Creator {agent.creator} · Created {agent.createdAt} · {source}
-              </div>
+              <div className="mt-2 text-sm text-white/55">Creator {agent.creator} · Created {agent.createdAt}</div>
               {"chainSource" in agent && agent.chainSource !== "local" ? (
                 <div className="mt-3 inline-flex rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-sky-200">
-                  on-chain overlay
+                  live market data
                 </div>
               ) : null}
             </div>
@@ -105,9 +103,9 @@ export default async function AgentDetailPage({
         </div>
 
         <div className="rounded-[34px] border border-white/10 bg-white/[0.03] p-7 md:p-8">
-          <div className="text-xs uppercase tracking-[0.3em] text-white/35">Protocol details</div>
+          <div className="text-xs uppercase tracking-[0.3em] text-white/35">Asset details</div>
           <div className="mt-5 space-y-4">
-            {protocolItems.map((item) => (
+            {assetItems.map((item) => (
               <div key={item.label} className="rounded-[22px] border border-white/10 bg-black/20 p-4">
                 <div className="text-xs uppercase tracking-[0.2em] text-white/35">{item.label}</div>
                 <div className="mt-2 text-sm text-white/78">{String(item.value)}</div>

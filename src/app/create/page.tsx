@@ -170,9 +170,7 @@ function CreateContent() {
                   onChange={(event) => setForm({ ...form, prompt: event.target.value })}
                   className="min-h-60 w-full rounded-[22px] border border-white/10 bg-black/20 px-4 py-3 text-white outline-none"
                 />
-                <div className="mt-2 text-sm text-white/40">
-                  {form.prompt.length} chars · uses {"{input}"} placeholder · source {source}
-                </div>
+                <div className="mt-2 text-sm text-white/40">{form.prompt.length} chars · uses {"{input}"} placeholder</div>
               </div>
             </div>
           ) : null}
@@ -202,7 +200,7 @@ function CreateContent() {
                 {monthlyRevenue.toLocaleString()} sats.
               </div>
               <div className="rounded-[24px] border border-white/10 bg-black/20 p-5 text-sm text-white/62">
-                Mint mode: {contractsReady ? `contract-aware on ${network}` : "local MVP persistence"}. Wallet:{" "}
+                Launch flow: {contractsReady ? `live marketplace on ${network}` : "demo marketplace"}. Wallet:{" "}
                 {connected ? `${mode} (${address})` : "not connected"}.
               </div>
               <OperatingModeNotice source={source} contractsReady={contractsReady} policy={policy} />

@@ -25,12 +25,6 @@ export default function Navbar() {
     return query ? `${href}?${query}` : href;
   }
 
-  function handleSourceChange(nextSource: string) {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("source", nextSource);
-    window.location.href = `${pathname}?${params.toString()}`;
-  }
-
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[rgba(10,10,15,0.82)] backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4">
@@ -49,6 +43,7 @@ export default function Navbar() {
         <nav className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1 md:flex">
           {navItems.map((item) => {
             const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+
             return (
               <Link
                 key={item.href}
@@ -70,30 +65,12 @@ export default function Navbar() {
             </div>
             <div className="text-sm font-medium text-white/85">{connected ? balance : "Wallet disconnected"}</div>
           </div>
-          <label className="hidden rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/65 lg:flex lg:items-center lg:gap-2">
-            <span className="uppercase tracking-[0.18em] text-white/40">source</span>
-            <select
-              value={source}
-              onChange={(event) => handleSourceChange(event.target.value)}
-              className="bg-transparent text-sm text-white outline-none"
-            >
-              <option value="local" className="bg-[#09090d]">
-                local
-              </option>
-              <option value="overlay" className="bg-[#09090d]">
-                overlay
-              </option>
-              <option value="index" className="bg-[#09090d]">
-                index
-              </option>
-            </select>
-          </label>
           <div
             className={`hidden rounded-full border px-3 py-2 text-xs uppercase tracking-[0.18em] lg:block ${
               contractsReady ? "border-emerald-500/20 text-emerald-300" : "border-white/10 text-white/45"
             }`}
           >
-            {contractsReady ? "contracts ready" : "local mode"} · {source}
+            {contractsReady ? "live marketplace" : "demo marketplace"}
           </div>
           {connected ? (
             <button

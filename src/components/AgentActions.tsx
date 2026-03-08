@@ -127,7 +127,10 @@ export default function AgentActions({ agentId, listing }: Props) {
   return (
     <div className="mt-8">
       <div className="mb-3 text-sm text-white/45">
-        Execution mode: {contractsReady ? "contract-aware" : "local MVP"} · wallet: {connected ? mode : "disconnected"}
+        {contractsReady
+          ? "This agent is ready for live marketplace actions."
+          : "This agent can be explored in demo mode while live trading rolls out."}{" "}
+        Wallet: {connected ? mode : "disconnected"}.
       </div>
       <OperatingModeNotice source={source} contractsReady={contractsReady} policy={policy} />
       <div className="mt-3 flex flex-wrap gap-3">

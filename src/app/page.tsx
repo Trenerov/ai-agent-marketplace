@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { ArrowRight, Shield, Sparkles } from "lucide-react";
 import AgentCard from "@/components/AgentCard";
-import PhaseRoadmap from "@/components/PhaseRoadmap";
 import { queryAgents } from "@/lib/agent-query";
 import { getContractActivity } from "@/lib/contract-journal";
 import { parseDataSourceMode } from "@/lib/data-source";
-import { categories, techStack, valueProps } from "@/lib/site-data";
+import { categories, valueProps } from "@/lib/site-data";
 
 export default async function Home({
   searchParams,
@@ -28,6 +27,26 @@ export default async function Home({
     overlayAgents: overlayAgents.length,
   };
   const trendingAgents = [...agents].sort((a, b) => b.totalUses - a.totalUses).slice(0, 6);
+  const marketplaceFlow = [
+    {
+      title: "Create and mint",
+      description: "Launch an agent with encrypted prompt storage, pricing in sats and NFT ownership on OP_NET.",
+    },
+    {
+      title: "Get paid per use",
+      description: "Users pay only when they run the agent, while creators collect recurring revenue from executions.",
+    },
+    {
+      title: "Sell successful agents",
+      description: "High-performing agents can be listed on the secondary market with creator royalties preserved.",
+    },
+  ];
+  const buyerReasons = [
+    "Instant access to specialized Bitcoin-native AI tools",
+    "Clear pricing before every execution",
+    "Tradeable ownership instead of disposable prompts",
+    "On-chain provenance for top-performing agents",
+  ];
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(247,147,26,0.18),transparent_24%),linear-gradient(180deg,#0a0a0f_0%,#09090d_100%)]">
@@ -135,42 +154,40 @@ export default async function Home({
           </div>
         </section>
 
-        <div className="mt-10">
-          <PhaseRoadmap />
-        </div>
-
         <section className="mt-10 rounded-[32px] border border-white/10 bg-white/[0.03] p-6 md:p-8">
-          <div className="mb-6">
-            <div className="mb-2 text-xs uppercase tracking-[0.34em] text-white/35">Architecture flow</div>
-            <h2 className="text-3xl font-semibold text-white">User - Frontend - OP_NET - Indexer - AI Backend - Result</h2>
+          <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <div className="mb-2 text-xs uppercase tracking-[0.34em] text-white/35">How it works</div>
+              <h2 className="text-3xl font-semibold text-white">A marketplace for monetizable AI agents</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-white/55">
+                The product is about launching, using and trading agents. The underlying stack matters only because it
+                enables ownership, usage payments and royalties.
+              </p>
+            </div>
+            <div className="rounded-full border border-[#f7931a]/30 bg-[#f7931a]/10 px-4 py-2 text-sm text-[#f7b15a]">
+              Built for creators and buyers
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            {["User", "Frontend", "OP_NET Contracts", "Event Indexer", "AI Backend", "Claude API", "Result"].map(
-              (item) => (
-                <div
-                  key={item}
-                  className="rounded-full border border-white/10 bg-black/20 px-4 py-3 text-sm font-medium text-white/75"
-                >
-                  {item}
-                </div>
-              )
-            )}
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-4">
-            {techStack.map((stack) => (
-              <div key={stack.label} className="rounded-[24px] border border-white/10 bg-black/20 p-5">
-                <div className="mb-3 text-xs uppercase tracking-[0.24em] text-[#f7931a]">{stack.label}</div>
-                <div className="flex flex-wrap gap-2">
-                  {stack.items.map((item) => (
-                    <span key={item} className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/55">
-                      {item}
-                    </span>
-                  ))}
-                </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {marketplaceFlow.map((step, index) => (
+              <div key={step.title} className="rounded-[24px] border border-white/10 bg-black/20 p-5">
+                <div className="mb-3 text-xs uppercase tracking-[0.24em] text-[#f7931a]">Step 0{index + 1}</div>
+                <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/62">{step.description}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 rounded-[28px] border border-white/10 bg-black/20 p-6">
+            <div className="mb-4 text-xs uppercase tracking-[0.24em] text-white/35">Why buyers care</div>
+            <div className="grid gap-3 md:grid-cols-2">
+              {buyerReasons.map((reason) => (
+                <div key={reason} className="rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 text-sm text-white/70">
+                  {reason}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </div>
