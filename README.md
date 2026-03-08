@@ -1,28 +1,147 @@
-AI Agent Marketplace is a contest-ready Next.js MVP for minting, using and trading AI agents on OP_NET.
+# AI Agent Marketplace
 
-## GitHub Push Checklist
+AI Agent Marketplace is a Bitcoin-native product for minting, using, and trading AI agents on OP_NET.
 
-Before pushing this repository:
+Creators turn prompts into on-chain agent assets, earn from every paid execution, and can sell successful agents on a secondary market. Buyers get specialized AI tools with clear per-use pricing instead of subscriptions or closed platforms.
 
-1. Keep local secrets out of git.
-2. Do not commit `.env.local` or `.env.contracts.local`.
-3. Only commit `.env.example`.
-4. If you do not want to publish current testnet deployment state, skip `contracts/opnet/deployment/state.json`.
-5. Run:
+## What The Project Is
 
-```bash
-npx tsc --noEmit
-npm run lint
-npm run build
-```
+This project is an AI marketplace where:
 
-Current production smoke-tested routes:
+- creators launch AI agents as on-chain assets
+- users pay in sats to run an agent for a specific task
+- successful agents can be listed and sold
+- creator royalties stay attached to the asset
 
-- `/dashboard?source=index`
-- `/marketplace?source=index`
-- `/create?source=index`
+In product terms, it sits between:
 
-## Quick Demo
+- an AI app store
+- a creator monetization platform
+- a Bitcoin-native asset marketplace
+
+## Why It Matters
+
+Most AI products today have two problems:
+
+- creators do not really own or monetize their agents as assets
+- buyers pay for subscriptions instead of paying only when value is delivered
+
+This project changes that by combining:
+
+- pay-per-use AI
+- on-chain ownership
+- secondary market trading
+- creator royalties
+
+## Core Value
+
+- `Pay-per-use`: users pay only when they actually run an agent
+- `Creator revenue`: every execution generates income for the agent owner
+- `Tradable agents`: agents can be bought and sold like productive digital assets
+- `Protected prompts`: prompt data is designed around encrypted storage and on-chain hashes
+- `Bitcoin-native`: built around OP_NET instead of a generic SaaS stack
+
+## Who It Is For
+
+- `Creators`: prompt engineers, indie builders, AI tinkerers
+- `Users`: people who want specialized agents without subscriptions
+- `Traders`: people who want to buy and resell valuable agents
+- `Protocols`: teams that may later plug agents into their own products
+
+## Main Product Flows
+
+### 1. Create
+
+The creator opens `/create`, defines:
+
+- name
+- description
+- category
+- prompt
+- price per use
+- royalty
+
+Then the creator mints the agent and gets an agent detail page.
+
+### 2. Use
+
+The buyer opens an agent page or playground, sees the price in sats, and pays to run the agent.
+
+### 3. Earn
+
+The creator dashboard tracks:
+
+- active agents
+- usage
+- revenue
+- recent activity
+
+### 4. Trade
+
+If an agent performs well, the owner can list it for sale and another user can buy it.
+
+## Product Pages
+
+- `/` landing and marketplace overview
+- `/marketplace` listings and agent discovery
+- `/create` mint wizard
+- `/agent/[id]` agent detail page
+- `/agent/[id]/play` paid execution playground
+- `/dashboard` creator dashboard
+
+## Current MVP Status
+
+The repository is already a strong contest MVP.
+
+What works now:
+
+- polished frontend for the main marketplace flows
+- local persistent app state
+- create, use, list, and buy flows in MVP mode
+- OP_NET contract workspace with deploy/build tooling
+- wallet-aware UI
+- contract intent, broadcast, and read/index layers
+- live-ready environment wiring for Vercel
+
+What is still not fully production-complete:
+
+- full write-enabled OP_NET testnet flow is still limited by runtime behavior on freshly deployed contracts
+- some chain interactions still rely on staged intent/broadcast flows rather than a fully mature production wallet UX
+
+So the right framing is:
+
+- `contest-ready MVP`: yes
+- `full production protocol`: not yet
+
+## Demo Story
+
+Recommended product demo:
+
+1. Open `/marketplace`
+2. Open an agent detail page
+3. Show the paid usage flow in `/agent/[id]/play`
+4. Open `/create` and walk through agent creation
+5. Open `/dashboard` and show creator-side earnings and activity
+
+## Tech Stack
+
+- `Frontend`: Next.js, React, Tailwind CSS
+- `Contracts`: OP_NET, AssemblyScript
+- `Backend`: Next.js API routes, AI runtime adapter
+- `Data`: local store plus contract journal/index/query layers
+- `Deployment`: Vercel
+
+## Runtime Modes
+
+The app can read data in three modes:
+
+- `local`: local persistent store only
+- `overlay`: local data merged with contract activity
+- `index`: contract-oriented read model
+
+This is useful for demos because the product can still run cleanly even when live chain behavior is partially limited.
+
+## Run Locally
 
 ```bash
 npm install
@@ -31,44 +150,19 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-Recommended judge flow:
+Useful validation:
 
-1. Open `/dashboard` and show contract readiness plus indexer activity.
-2. Switch the navbar `source` between `local`, `overlay`, and `index`.
-3. Open `/create` and mint an agent.
-4. Open `/agent/[id]` and show list or buy flow.
-5. Open `/agent/[id]/play` and run the paid execution flow.
+```bash
+npx tsc --noEmit
+npm run lint
+npm run build
+```
 
-Local state is persisted in `data/marketplace-db.json`.
+## Environment
 
-## Testnet Before Vercel
+Copy `.env.example` into your local env file and fill the values you need.
 
-To run the product against OP_NET testnet instead of the local store:
-
-1. Deploy contracts from `contracts/opnet` or fill real deployed addresses.
-2. Set:
-   - `OPNET_RPC_URL`
-   - `OPNET_AGENT_NFT_ADDRESS`
-   - `OPNET_AGENT_REGISTRY_ADDRESS`
-   - `OPNET_USAGE_PAYMENT_ADDRESS`
-   - `OPNET_MARKETPLACE_ADDRESS`
-   - `OPNET_LIVE_READS=1`
-3. Keep `source=index` or leave `DATA_SOURCE_MODE` empty. With `OPNET_LIVE_READS=1`, the app now defaults to `index`.
-4. For server-side broadcasting, also set `OPNET_MNEMONIC`.
-5. For browser signing only, skip `OPNET_MNEMONIC` and use `prepare -> sign -> broadcast-signed`.
-
-For Vercel specifically, root install now runs `npm --prefix contracts/opnet install`, so the nested OP_NET scripts used by API routes are available during deployment.
-
-## Deploy To Vercel
-
-Use the Next.js app root as the Vercel project root:
-
-- Root Directory: `ai-agent-marketplace`
-- Install Command: leave default (`npm install`)
-- Build Command: leave default (`npm run build`)
-- Output Directory: leave empty
-
-Recommended Vercel env for the current contest MVP:
+Minimum useful env:
 
 ```bash
 NEXT_PUBLIC_OPNET_NETWORK=opnet-testnet
@@ -83,7 +177,7 @@ AGENT_ENCRYPTION_SECRET=change-me
 AI_BACKEND_MODE=local
 ```
 
-Optional env:
+Optional remote AI env:
 
 ```bash
 AI_HTTP_PROVIDER=openai
@@ -93,108 +187,74 @@ AI_HTTP_MODEL=
 AI_HTTP_TIMEOUT_MS=30000
 ```
 
-Do not set `OPNET_MNEMONIC` in Vercel unless you explicitly want server-side broadcasting.
+Do not commit:
 
-After deploy, verify:
+- `.env.local`
+- `.env.contracts.local`
+- secrets or mnemonic phrases
 
-1. `/dashboard?source=index`
-2. `/marketplace?source=index`
-3. `/create?source=index`
+## OP_NET Contracts
 
-Current OP_NET status:
+The contract workspace lives in `contracts/opnet`.
 
-- read/index mode is ready for demo deployment
-- deployed testnet addresses are available
-- contract configure and full write-enabled on-chain flow are still blocked by OP_NET runtime behavior on freshly deployed contracts
-
-## Runtime Modes
-
-The app exposes its runtime mode directly in the UI and API.
-
-- `source=local`: reads from the local persistent store
-- `source=overlay`: reads from local store merged with contract journal and indexed receipts
-- `source=index`: reads from the materialized contract query layer
-
-Write behavior is explicit:
-
-- if the matching contract is frontend-ready, writes return an OP_NET intent and execute on-chain
-- if contracts are not ready and source is `local` or `overlay`, writes fall back to the local store
-- if contracts are not ready and source is `index`, writes are blocked as read-only
-
-This prevents silent fallback from chain-backed reads into local writes during demos.
-
-## Main Routes
-
-- `/` landing and roadmap
-- `/marketplace` listings view
-- `/create` mint wizard
-- `/agent/[id]` agent detail
-- `/agent/[id]/play` paid execution playground
-- `/dashboard` creator dashboard, contract readiness, journal and indexer status
-
-## Contracts
-
-Build OP_NET contracts:
+Useful commands:
 
 ```bash
 cd contracts/opnet
+npm install
 npm run build
 npm test
 npm run deploy:plan
 npm run deploy:dry-run
 ```
 
-The app reads deployment readiness from:
+The app can read deployment info from:
 
 - `.env.local`
 - `contracts/opnet/deployment/state.json`
 
-To wire addresses manually, copy `.env.example` to `.env.local` and fill:
+If you already have deployment data, you can sync contract addresses back into the app env from the contracts workspace.
+
+## Deploy To Vercel
+
+Use the Next.js app folder as the Vercel root.
+
+- `Root Directory`: `ai-agent-marketplace`
+- `Install Command`: `npm install`
+- `Build Command`: `npm run build`
+- `Output Directory`: leave empty
+
+Recommended Vercel env:
 
 ```bash
 NEXT_PUBLIC_OPNET_NETWORK=opnet-testnet
+OPNET_NETWORK=opnetTestnet
+OPNET_RPC_URL=https://testnet.opnet.org
+OPNET_LIVE_READS=1
 OPNET_AGENT_NFT_ADDRESS=
 OPNET_AGENT_REGISTRY_ADDRESS=
 OPNET_USAGE_PAYMENT_ADDRESS=
 OPNET_MARKETPLACE_ADDRESS=
-```
-
-Or sync env values from the contracts workspace:
-
-```bash
-cd contracts/opnet
-npm run deploy:sync-env
-```
-
-If `OPNET_MNEMONIC` and RPC config are present, on-chain intents can be broadcast through `/api/contracts/broadcast`.
-Offline signing bundles can be created through `/api/contracts/prepare`.
-Already signed raw transactions can be sent through `/api/contracts/broadcast-signed`.
-
-## AI Backend
-
-The execution backend runs through a provider adapter.
-
-- `AI_BACKEND_MODE=local` uses the simulated local provider
-- any non-`local` mode uses the HTTP adapter and calls a remote LLM endpoint
-
-Useful env knobs:
-
-```bash
 AGENT_ENCRYPTION_SECRET=change-me
 AI_BACKEND_MODE=local
-AI_HTTP_PROVIDER=openai
-AI_HTTP_ENDPOINT=
-AI_HTTP_API_KEY=
-AI_HTTP_MODEL=
-AI_HTTP_TIMEOUT_MS=30000
-AI_MAX_INPUT_CHARS=2000
-AI_RATE_LIMIT_COUNT=5
-AI_RATE_LIMIT_WINDOW_MS=300000
 ```
 
-Supported HTTP dialects:
+Do not set `OPNET_MNEMONIC` in Vercel unless you explicitly want server-side broadcasting.
 
-- `AI_HTTP_PROVIDER=openai` for OpenAI-compatible `chat/completions`
-- `AI_HTTP_PROVIDER=anthropic` for Anthropic-compatible `messages`
+After deploy, check:
 
-If remote mode is enabled but misconfigured, `/api/execute` returns `503` instead of silently falling back.
+- `/marketplace?source=index`
+- `/create?source=index`
+- `/dashboard?source=index`
+
+## Repo Notes
+
+- local persistent state lives in `data/marketplace-db.json`
+- contract journal/index snapshots live in `data/contract-journal.json` and `data/contract-index.json`
+- current testnet deployment state is tracked in `contracts/opnet/deployment/state.json`
+
+## Current Submission Framing
+
+If you are using this for a contest or demo day, the most accurate one-line description is:
+
+> A Bitcoin-native marketplace where AI agents become monetizable, tradeable assets.
